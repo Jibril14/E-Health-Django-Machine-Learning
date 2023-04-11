@@ -34,7 +34,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             return super().save(*args, **kwargs)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
+    REQUIRED_FIELDS = ["first_name", "last_name"]
 
     objects = UserManager()
 
@@ -43,6 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = 'Users'
         verbose_name = 'User'
         ordering = ['-date_joined']
+        default_permissions = ('add', 'change', 'view', )
         
 
     def __str_(self):

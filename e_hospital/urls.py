@@ -22,5 +22,6 @@ from prediction_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('prediction_app.urls')),  
+    path('', include('prediction_app.urls')),
+    path('', include('account.urls')),  
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

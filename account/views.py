@@ -1,3 +1,59 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import UserRegistrationForm
+from .models import User
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib import auth
 
-# Create your views here.
+def register(request):
+    
+    if request.method =="POST":
+        form = UserRegistrationForm()
+        try:
+            first_name = request.POST.get("first_name", "")
+            last_name = request.POST.get("last_name", "")
+            email = request.POST.get("email", "")
+            username = request.POST.get("username", "")
+            address = request.POST.get("address", "")
+            role = request.POST.get("role", "")
+            password = request.POST.get("password", "")
+            user = User(first_name=first_name, last_name=last_name, username=username, email=email, address=address, role=role, password=password)
+            user.save()
+            return HttpResponseRedirect(reverse('login'))
+        
+        except Exception as error:
+            form = UserRegistrationForm()
+            context = {
+                "form":form,
+                "error":error,
+            }
+            return render(request, "account/register.html", context)
+
+
+    else:
+        form = UserRegistrationForm()
+    context = {
+        "form":form
+    }
+    return render(request, "account/register.html", context)
+
+
+
+def login(request):
+    if request.method == "POST":
+        email = request.POST["email"]
+        password = request.POST["password"]
+        user = auth.authenticate(email=email, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect("home")
+        else:
+            return render(request, "account/login.html", {"error":"Invalid Credential"})
+
+    return render(request, "account/login.html")
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect("home")

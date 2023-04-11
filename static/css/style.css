@@ -968,7 +968,7 @@ section {
 }
 
 .appointment .php-email-form .error-message {
-  display: none;
+  
   color: #fff;
   background: #ed3c0d;
   text-align: left;
@@ -1779,4 +1779,26 @@ section {
   text-align: center;
   font-size: 13px;
 }
+
+.button {
+ 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  background: inherit;
+  border-radius: 50px;
+  width: 100%;
+}
+
+.text-center{
+    background: #3fbbc0;
+    border: 0;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    margin:auto 20%
+}
+
 

@@ -1,0 +1,57 @@
+  
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="margin: 150px 10px 50px 10px;">
+  <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+  
+    <div class="row">
+      <div class="col-md-4 form-group mt-3 mt-md-0">
+       <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name" required>
+      </div>
+      <div class="col-md-4 form-group mt-3 mt-md-0">
+        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last Name" required>
+       </div>
+      <div class="col-md-4 form-group mt-3 mt-md-0">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group mt-3">
+        <input type="text" class="form-control" name="address" id="address" placeholder="Your address" required>      </div>
+      <div class="col-md-4 form-group mt-3">
+        <select name="role" id="role" class="form-select">
+          <option value="">Select Role</option>
+          <option value="Patient">Patient</option>
+          <option value="Doctor">Doctor</option>
+        </select>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+        <select name="doctor" id="doctor" class="form-select">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group mt-3">
+       <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+       </div>
+    </div>
+    <div class="my-3">
+      <div class="error-message" style="color: red;">{{error}}</div>
+    </div>
+      <div class="text-center"><button class="button" type="submit">Register</button></div>
+  </form>
+    <p style="padding: 15px;">Already a member? <a href="{% url 'login' %}">log in</a></p>
+</div>
+
+{% endblock %}
