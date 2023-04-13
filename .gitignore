@@ -1,8 +1,8 @@
 
 MYDOC
 /static/img/
-/secret_key.txt
-secret_key.txt
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
