@@ -1,0 +1,45 @@
+  
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="margin: 150px 10px 50px 10px;">
+{%for user in user%}
+  <h3 style="color: rgb(255, 154, 31); margin-bottom: 30px;"> WELCOME: {{user.first_name}}</h3>
+ 
+  <form action="#" method="post">
+    {% csrf_token %}
+  
+    <div class="row"> 
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="email" class="form-control" name="email" placeholder={{user.email}} disabled>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="password" name="password" class="form-control"  placeholder="First name: {{user.first_name}}" required>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="text" name="first_name" class="form-control"  placeholder="Last name: {{user.last_name}}"" required>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="text" name="gender" class="form-control"  placeholder={{user.gender}} disabled>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="text" name="address" class="form-control"  placeholder="Address: {{user.address}}" required>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="text" name="role" class="form-control"  placeholder= "role: {{user.role}}" disabled>
+        </div>
+        <div class="col-md-4 form-group mt-3 mt-md-0">
+          <input type="text" name="date_joined" class="form-control"  placeholder=" Join: {{user.date_joined}}" disabled>
+        </div>
+    </div> 
+   
+    <div class="my-3">
+      <div class="error-message" style="color: red;">{{error}}</div>
+    </div>
+      <div class="text-center"><button class="button" type="submit">Update</button></div>
+  </form>
+  {% endfor%}
+</div>
+
+{% endblock %}
