@@ -9,31 +9,27 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto " href="/">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-          <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
           {% if user.id is null %}
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li class="dropdown"><a href="#"><span>Account</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-             
               <li><a href="{% url "login" %}">Login</a></li>
               <li><a href="{% url "register" %}">Register</a></li>
 
               <li><a href="#">Profile</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
           {% else %}
+          <li><a class="nav-link scrollto" href="{% url "diabetes_result" %}">History</a></li>
+          <li><a class="nav-link scrollto" href="{% url "diabetes_prediction" %}">Check Diabetes</a></li>
           <li class="dropdown"><a href="#"><span>Welcome: <span style="color: rgb(250, 23, 137);">{{user.first_name}}</span></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{% url "home" %}">Profile</a></li>
+              <li><a href="{% url "profile" %}">Profile</a></li>
               <li><a href="{% url "logout" %}">Logout</a></li>
             </ul>
           </li>
           {% endif %}
-
+          <li><a class="nav-link scrollto" href="{% url "doctors" %}">Doctors</a></li>
           <li><a class="nav-link scrollto" href="" %}">Contact</a></li>
          
         </ul>

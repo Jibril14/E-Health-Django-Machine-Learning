@@ -1,0 +1,57 @@
+  
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="margin: 150px 10px 50px 10px;">
+    <div style="overflow-x:auto;">
+        <h3 style="margin: 10px auto; text-align: center;">Entered Parameters</h3>
+
+        {% for x in prediction %}
+        <table style="margin-bottom: 30px;">
+          <tr>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Bmi</th>
+            <th>Bp</th>
+            <th>Tc</th>
+            <th>Ldl</th>
+            <th>Hdl</th>
+            <th>Tch</th>
+            <th>Ltg</th>
+            <th>Glucose</th>
+            <th>Date</th>
+            <th style="color: cyan;">Prediction Result</th>
+
+          </tr>
+          <tr>
+            <td>{{x.age}}</td>
+            <td>{{x.sex}}</td>
+            <td>{{x.bmi}}</td>
+            <td>{{x.bp}}</td>
+            <td>{{x.tc}}</td>
+            <td>{{x.ldl}}</td>
+            <td>{{x.hdl}}</td>
+            <td>{{x.tch}}</td>
+            <td>{{x.ltg}}</td>
+            <td>{{x.glucose}}</td>
+            <td>{{x.created_at}}</td>
+            <td>
+                {% if x.result == "No Diabetes"%}
+                <span style="color: rgb(20, 236, 20);">{{x.result}}</span>
+                {% else %}
+                <span style="color: red;">{{x.result}}</span> <b>See a Doctor</b>
+                {% endif %}
+            </td>
+          </tr>
+          
+        </table>
+        {% endfor %}
+      </div>
+
+      <button class="btndownload"><a class="download-link" href="{% url 'download' %}">Download Result</a></button>
+</div>
+
+{% endblock %}
+
