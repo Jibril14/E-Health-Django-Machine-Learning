@@ -1,0 +1,64 @@
+  
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="margin: 150px 10px 50px 10px;">
+  <form action="{% url 'diabetes_prediction' %}" method="post">
+    {% csrf_token %}
+  <h2 style="margin: 10px auto; text-align: center;">Fill the form Bellow to Check Your Diabetes Status</h2>
+    <div class="row">
+      <div class="col-md-4 form-group mt-3">
+       <input type="number" name="age" class="form-control" id="age" placeholder="Age" required>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+        <select name="sex" id="role" class="form-select" required>
+          <option value="">Select Gender</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+        <input type="number" class="form-control" name="bmi" id="bmi" placeholder="bmi" required>
+      </div>
+      
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4 form-group mt-3">
+       <input type="number" name="bp" class="form-control" id="bp" placeholder="bp" required>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+        <input type="number" name="tc" class="form-control" id="tc" placeholder="tc" required>
+       </div>
+       <div class="col-md-4 form-group mt-3">
+        <input type="number" name="ldl" class="form-control" id="ldl" placeholder="ldl" required>
+       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group mt-3">
+       <input type="number" name="hdl" class="form-control" id="hdl" placeholder="hdl" required>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+        <input type="number" name="tch" class="form-control" id="tch" placeholder="tch" required>
+       </div>
+       <div class="col-md-4 form-group mt-3">
+        <input type="number" name="ltg" class="form-control" id="ltg" placeholder="ltg" required>
+       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group mt-3">
+       <input type="number" name="glucose" class="form-control" id="glucose" placeholder="glucose" required>
+      </div>
+      
+    </div>
+
+    <div class="my-3">
+      <div class="error-message" style="color: red;">{{error}}</div>
+    </div>
+      <div class="text-center"><button class="button" type="submit">Check Diabetes Status</button></div>
+  </form>
+   
+</div>
+
+{% endblock %}
