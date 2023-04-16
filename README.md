@@ -5,6 +5,7 @@ EHealth is an online Medical website where patient can register, predict there D
   Built with Django, Pandas, scikit-learn Bootstrap and Javascript.
 
 ![EHealth](sample/sample1.png)
+![EHealth](sample/sample2.png)
 ![EHealth](sample/sample1.gif)
 ![EHealth](sample/sample.gif)
 
