@@ -6,6 +6,7 @@ EHealth is an online Medical website where patient can register, predict there D
 
 ![EHealth](sample/sample1.png)
 ![EHealth](sample/sample2.png)
+![EHealth](sample/sample3.png)
 ![EHealth](sample/sample1.gif)
 ![EHealth](sample/sample.gif)
 
